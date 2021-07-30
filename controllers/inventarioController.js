@@ -89,7 +89,7 @@ exports.actualizarInventario = (req,res) => {
      console.log(req.body.nombre);
      console.log(req.params.id);
      console.log(new Date(req.body.fecha_entrada).toLocaleString());
-     const automovil = [ req.body.id_marca,req.body.id_modelo,req.body.color,req.body.cantidad,req.body.kilometraje,req.body.id_tipo, new Date(req.body.fecha_entrada).toLocaleString(),req.params.id];
+     const automovil = [ req.body.id_marca,req.body.id_modelo,req.body.color,req.body.cantidad,req.body.kilometraje,req.body.id_tipo, req.body.fecha_entrada,req.params.id];
      conexiondb.query(`UPDATE tblinventarioautomoviles set id_marca = ? ,id_modelo = ? ,color =?,cantidad= ?, kilometraje= ? ,id_tipo = ? ,fecha_entrada = ? where id = (?) `, automovil, (err, respuesta) => {
         if(err)
         {
